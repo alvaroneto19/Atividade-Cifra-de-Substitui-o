@@ -1,12 +1,13 @@
-const alfabeto =
-  'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ,;._#*"-+';
-var tamanho_alfabeto = alfabeto.length;
-var mensagem = prompt('Digita sua mensagem que deseja criptografar: ');
+const alfabeto = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ,;._#*"-+';
+var tamanho_alfabeto = alfabeto.length
+var mensagem = prompt("Digita sua mensagem que deseja criptografar: ")
 
-var mensagem_criptografada = '';
-var mensagem_descriptografada = '';
-var resultado_validação;
-var chave = prompt('Escreva uma chave para criptografar a sua  mensagem: ');
+var mensagem_criptografada = ""
+var mensagem_descriptografada = ""
+var resultado_validação
+var chave = prompt("Escreva uma chave para criptografar a sua  mensagem: ")
+
+
 
 function validacao_de_caracteres(msg) {
   for (let i = 0; i < msg.length; i++) {
@@ -19,88 +20,68 @@ function validacao_de_caracteres(msg) {
 }
 
 function cifrar(mensagem, chave) {
-  console.log('\n');
+  console.log("\n")
   for (var i = 0; i < mensagem.length; i++) {
-    var caratecere = mensagem[i];
-    var caractere_chave = chave[i % chave.length];
-    var posicao = alfabeto.indexOf(caratecere);
-    var posicao_chave = alfabeto.indexOf(chave[i % chave.length]);
-    var posicao_final = (posicao + posicao_chave) % tamanho_alfabeto;
-    var valor_atual_alfabeto = alfabeto.charAt(posicao_final);
+    var caratecere = mensagem[i]
+    var caractere_chave = chave[i % chave.length]
+    var posicao = alfabeto.indexOf(caratecere)
+    var posicao_chave = alfabeto.indexOf(chave[i % chave.length])
+    var posicao_final = (posicao + posicao_chave) % tamanho_alfabeto
+    var valor_atual_alfabeto = alfabeto.charAt(posicao_final)
 
-    console.log(
-      'Posicao do caracter  [' +
-        caratecere +
-        '] e igual a ' +
-        posicao +
-        ' |    Posicao do caractere da chave [' +
-        caractere_chave +
-        '] e igual a ' +
-        posicao_chave
-    );
 
-    console.log(
-      'O valor atual do alfabeto é ' +
-        valor_atual_alfabeto +
-        ' e seu valor é ' +
-        posicao_final
-    );
+    console.log("Posicao do caracter  [" + caratecere + "] e igual a " + posicao + " |    Posicao do caractere da chave [" + caractere_chave + "] e igual a " + posicao_chave)
 
-    mensagem_criptografada = mensagem_criptografada + valor_atual_alfabeto;
+
+    console.log("O valor atual do alfabeto é " + valor_atual_alfabeto + " e seu valor é " +  posicao_final)
+
+    mensagem_criptografada = mensagem_criptografada + valor_atual_alfabeto
+
+
+
   }
 }
+
 
 function decifrar(mensagem_criptografada, chave) {
   for (var i = 0; i < mensagem_criptografada.length; i++) {
-    var caratecere = mensagem_criptografada[i];
-    var caractere_chave = chave[i % chave.length];
-    var posicao = alfabeto.indexOf(caratecere);
-    var posicao_chave = alfabeto.indexOf(chave[i % chave.length]);
-    var posicao_final =
-      (posicao - posicao_chave + tamanho_alfabeto) % tamanho_alfabeto;
-    var valor_atual_alfabeto = alfabeto.charAt(posicao_final);
+    var caratecere = mensagem_criptografada[i]
+    var caractere_chave = chave[i % chave.length]
+    var posicao = alfabeto.indexOf(caratecere)
+    var posicao_chave = alfabeto.indexOf(chave[i % chave.length])
+    var posicao_final = (posicao - posicao_chave + tamanho_alfabeto) % tamanho_alfabeto
+    var valor_atual_alfabeto = alfabeto.charAt(posicao_final)
 
-    console.log(
-      'Posicao do caracter  [' +
-        caratecere +
-        '] e igual a ' +
-        posicao +
-        ' |    Posicao do caractere da chave [' +
-        caractere_chave +
-        '] e igual a ' +
-        posicao_chave
-    );
+    console.log("Posicao do caracter  [" + caratecere + "] e igual a " + posicao + " |    Posicao do caractere da chave [" + caractere_chave + "] e igual a " + posicao_chave)
 
-    var valor_atual_alfabeto = alfabeto.charAt(posicao_final);
-    console.log(
-      'O valor atual do alfabeto é ' +
-        valor_atual_alfabeto +
-        ' e seu valor é ' +
-        posicao_final
-    );
+    var valor_atual_alfabeto = alfabeto.charAt(posicao_final)
+    console.log("O valor atual do alfabeto é " + valor_atual_alfabeto + " e seu valor é " + posicao_final)
 
-    mensagem_descriptografada =
-      mensagem_descriptografada + valor_atual_alfabeto;
+    mensagem_descriptografada = mensagem_descriptografada + valor_atual_alfabeto
+
   }
+
 }
+
+
 
 if (validacao_de_caracteres(mensagem) && validacao_de_caracteres(chave)) {
   cifrar(mensagem, chave);
-  console.log('\n');
-  console.log('Mensagem cifrada: ' + mensagem_criptografada);
-  console.log('=========================================================');
-  console.log('\n');
+  console.log("\n")
+  console.log("Mensagem cifrada: " + mensagem_criptografada);
+  console.log("=========================================================")
+  console.log("\n")
   decifrar(mensagem_criptografada, chave);
-  console.log('\n');
-  console.log('Mensagem decifrada: ' + mensagem_descriptografada);
-  console.log('=========================================================');
-  console.log('\n');
-  console.log('mensagem original: ' + mensagem);
-  console.log('mensagem-com cirptografia: ' + mensagem_criptografada);
+  console.log("\n")
+  console.log("Mensagem decifrada: " + mensagem_descriptografada);
+  console.log("=========================================================")
+  console.log("\n")
+  console.log("mensagem original: " + mensagem)
+  console.log("mensagem-com cirptografia: " + mensagem_criptografada)
 } else if (validacao_de_caracteres(mensagem) == false) {
-  console.log('Erro: um dos caracteres da sua mensagem não e valido');
+  console.log("Erro: um dos caracteres da sua mensagem não e valido")
 } else if (validacao_de_caracteres(chave) == false) {
-  console.log('Erro: um dos caracteres da sua chave não e valido');
+  console.log("Erro: um dos caracteres da sua chave não e valido")
 }
 
 /**
@@ -179,3 +160,6 @@ _ = 66
 */
 //validacao_de_caracteres(mensagem)
 //var chave = prompt("Escreva uma chave para criptografar a mensagem:")
+
+
+
