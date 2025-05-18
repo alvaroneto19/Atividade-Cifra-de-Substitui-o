@@ -1,6 +1,12 @@
 # Atividade-Cifra-de-Substitui-o
 Se trata de um desenvolvimento de uma cifra de substituição para obtenção de nota na disciplina de Segurança em sistema Computacionais  
 
+# sites para ter acesso ao codido em java script e executar de maneira online 
+## https://replit.com/join/laxgykuqax-alvaroalexandre
+## https://playcode.io/2387203
+
+# Se for optar pelo Replit siga os passos abaixo 
+
 #No site Replit será necessário logar com sua conta da Google 
 ![image](https://github.com/user-attachments/assets/852276c9-6d36-49e8-8803-0c0c178b2e2b)
 
